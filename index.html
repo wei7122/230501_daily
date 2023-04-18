@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- ============== 輪播css ============== -->
+  <link rel="stylesheet" href="https://media.etmall.com.tw/sp/12500/swiper.min.css" />
+  <!-- ============== 共用css ============== -->
+  <link rel="stylesheet" href="https://media.etmall.com.tw/sp/12500/animate.min.css" />
+  <link rel="stylesheet" href="https://media.etmall.com.tw/sp/12500/generate_v1.5.5.css"/>
+  <link rel="stylesheet" href="https://media.etmall.com.tw/sp/12500/build.css" />
+
+  <!-- [電梯步驟1] 電梯CSS 不用就關掉 -->
+  <!-- 商品左電梯CSS，要使用還要在步驟2開啟左電梯data資料 -->
+  <!-- <link id="localElevatorLeft" rel="stylesheet" href="sp-elevator-left.css"> -->
+
+  <!-- 商品右電梯CSS，步驟2有測試div可以測試 -->
+  <link id="localElevatorRight" rel="stylesheet" href="sp-elevator-right.css" />
+  <!-- [電梯步驟1] 電梯CSS END -->
+
+  <style>
+    body {
+      background-color: #83c86b;
+    }
+
+    body:before {
+      background: url(bg-m.jpg) center 0 no-repeat;
+      background-size: 100%;
+    }
+
+    @media screen and (min-width: 960px) {
+      body:before {
+        background: url(bg.jpg) center 0 no-repeat;
+        background-size: auto;
+      }
+    }
+
+    /* 調整logo位置大小 */
+    /* .logo {
+        top: 1%;
+        left: 1%;
+        width: 30%;
+        max-width: 220px;
+      } */
+
+
+
+       /* == 單(雙)連結輪播_第二組 == */
+   .promo__slider--2 {
+    position: absolute;
+    z-index: 1;
+    top: 53%;
+    /* 小網左邊距離 */
+    left: 9%;
+    /* 小網圖片寬 */
+    width: 80%;
+    /* 圖片原始尺寸 */
+   
+    overflow: hidden;
+    padding-bottom: 2%;
+  }
+
+  @media screen and (min-width: 960px) {
+    .promo__slider--2 {
+      /* 大網左邊距離 */
+      width: 950px;
+      top: 1215px;
+      left: calc(50% - 390px);
+      overflow: visible;
+    }
+  }
+
+    /* --- 動畫小物件 --- */
+    .animate__wrap {
+      z-index: 1;
+    }
+    .animate__wrap--02 {
+      z-index: -1;
+    }
+
+    /*-- 手機版：設定物件距離左邊與上邊的位置，單位可以使用"%"或"vw";width:建議電腦版可以使用auto，手機版則可使用%調整 --*/
+    .animate__wrap .animate__obj--01 {
+      position: absolute;
+      z-index: -1;
+      top: 28vw;
+      left: 12vw;
+      width: 20%;
+      animation: fireworks 0.7s ease-out infinite;
+    }
+    .animate__wrap .animate__obj--02 {
+      position: absolute;
+      z-index: -1;
+      top: 20vw;
+      left: 67vw;
+      width: 15%;
+      animation: fireworks 1.2s ease-out infinite;
+    }
+    .animate__wrap .animate__obj--03 {
+      position: absolute;
+      z-index: -1;
+      top: 6vw;
+      left: 22vw;
+      width: 55%;
+    }
+    .animate__wrap--02 .animate__obj--04 {
+      position: fixed;
+      z-index: -1;
+      top: 12vw;
+      left: -5vw;
+      width: 20%;
+      animation: flow 3s ease-in-out infinite;
+    }
+    .animate__wrap--02 .animate__obj--05 {
+      position: fixed;
+      z-index: -1;
+      top: 4vw;
+      left: 78vw;
+      width: 10%;
+      animation: flow 5s ease-in-out infinite;
+    }
+    .animate__wrap--02 .animate__obj--06 {
+      position: fixed;
+      z-index: -1;
+      top: 28vw;
+      left: 88vw;
+      width: 16%;
+      animation: flow 4s ease-in-out infinite;
+    }
+    .animate__wrap--02 .animate__obj--07 {
+      position: fixed;
+      z-index: -1;
+      top: 4vw;
+      left: 78vw;
+      width: 0%;
+    }
+    .animate__wrap--02 .animate__obj--08 {
+      position: fixed;
+      z-index: -1;
+      top: 28vw;
+      left: 88vw;
+      width: 0%;
+    }
+    .animate__wrap .animate__obj--09 {
+      position: absolute;
+      z-index: -1;
+      top: 70vw;
+      left: 76vw;
+      width: 13%;
+    }
+    .animate__wrap .animate__obj--10 {
+      position: absolute;
+      z-index: -1;
+      top: 68vw;
+      left: 9vw;
+      width: 15%;
+    }
+  
+
+    /*-- 電腦版：設定物件距離左邊與上邊的位置，單位可以使用"px"，左邊可以挑整clac()後面的px值;width:建議電腦版可以使用auto，手機版則可使用%調整 --*/
+    @media screen and (min-width: 960px) {
+      .animate__wrap .animate__obj--01 {
+        top: 270px;
+        left: calc(50% - 350px);
+        width: auto;
+        animation: fireworks 0.7s ease-out infinite;
+      }
+    }
+    @media screen and (min-width: 960px) {
+      .animate__wrap .animate__obj--02 {
+        top: 200px;
+        left: calc(50% - -180px);
+        width: auto;
+        animation: fireworks 1.2s ease-out infinite;
+      }
+    }
+    @media screen and (min-width: 960px) {
+      .animate__wrap .animate__obj--03 {
+        top: 55px;
+        left: calc(50% - 270px);
+        width: auto;
+      }
+    }
+    @media screen and (min-width: 960px) {
+      .animate__wrap--02 .animate__obj--04 {
+        position: fixed;
+        top: 140px;
+        left: calc(50% - 530px);
+        width: auto;
+        animation: flow 3s ease-in-out infinite;
+      }
+    }
+    @media screen and (min-width: 960px) {
+      .animate__wrap--02 .animate__obj--05 {
+        position: fixed;
+        top: 40px;
+        left: calc(50% - -260px);
+        width: auto;
+        animation: flow 5s ease-in-out infinite;
+      }
+    }
+    @media screen and (min-width: 960px) {
+      .animate__wrap--02 .animate__obj--06 {
+        position: fixed;
+        top: 270px;
+        left: calc(50% - -360px);
+        width: auto;
+        animation: flow 4s ease-in-out infinite;
+      }
+    }
+    @media screen and (min-width: 960px) {
+      .animate__wrap--02 .animate__obj--07 {
+        position: fixed;
+        top: 220px;
+        left: calc(50% - 850px);
+        width: auto;
+        animation: fireworks 3s ease-out infinite;
+      }
+    }
+    @media screen and (min-width: 960px) {
+      .animate__wrap--02 .animate__obj--08 {
+        position: fixed;
+        top: 130px;
+        left: calc(50% - -530px);
+        width: auto;
+        animation: fireworks 2s ease-out infinite;
+      }
+    }
+    @media screen and (min-width: 960px) {
+      .animate__wrap .animate__obj--09 {
+        top: 670px;
+        left: calc(50% - -250px);
+        width: auto;
+      }
+    }
+    @media screen and (min-width: 960px) {
+      .animate__wrap .animate__obj--10 {
+        top: 655px;
+        left: calc(50% - 390px);
+        width: auto;
+      }
+    }
+
+    /* 滾到位置才會出現的動畫 */
+    .decor__item {
+      position: absolute;
+      z-index: 1;
+      /* 小網位置 */
+      top: 79%;
+      left: 25%;
+      width: 50%;
+    }
+
+    /* 滾到位置時要加入的動畫，從animate.css找就可以 */
+    .animate__scroll--01 {
+      animation: jackInTheBox 1s linear 1;
+    }
+
+    @media screen and (min-width: 960px) {
+      .decor__item {
+        /* 大網位置 */
+        top: 1800px;
+        left: calc(50% - 225px);
+        width: auto;
+      }
+    }
+
+    @keyframes fireworks {
+	0% {
+		transform: scale(0);
+        opacity:1;
+	}
+  	
+	100% {
+		transform: scale(1.5);
+        opacity:0;
+	}
+  }
+
+  @keyframes flow {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(20px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+  
+
+    /* --- 動畫小物件 end --- */
+
+    /* --- 滑動Banner start --- */
+    .banner__slider {
+      /* 輪播的父層 */
+      z-index: 0;
+    }
+
+    .banner__slider .swipersty__banner {
+      position: absolute;
+      z-index: 0;
+      top: 43%;
+      left: 10.9%;
+      width: 78.1%;
+    }
+    /* --- 滑動Banner end --- */
+
+   
+/* --- 背景動畫圖片們--- */
+
+.bg__container.falling .bg--first {
+      background: url(bg-animate-1.png) center 0;
+    }
+
+   
+
+   
+
+   
+
+  </style>
+</head>
+<!-- 是否要固定背景，不要就拿掉class -->
+
+<body class="bg-fixed">
+  <div class="navRightBar" id="navRightBar"></div>
+  <div class="elevatorHome js--main--dialog" id="elevatorHome"></div>
+  <div id="barHome"></div>
+  <div class="home--icon layout--main" id="iconHome"></div>
+
+  <div class="sp__wallper" id="spWrap">
+
+     <!-- ====== 背景飄落 start ====== -->
+     <div class="bg__container falling">
+      <!-- ====== 背景動畫 == ==== -->
+      <div class="falling__layer">
+        <div class="falling__block bg--first"></div>
+        <div class="falling__block bg--second"></div>
+        <div class="falling__block bg--third"></div>
+      </div>
+
+      <!-- ====== 圖片隨機動畫 == ==== -->
+      <div class="random__layer">
+        <div class="random__block"></div>
+      </div>
+    </div>
+    <!-- ====== 背景飄落 end ====== -->
+   
+
+    <div class="animate__wrap">
+        <img class="animate__animated animate__obj--01" src="ani_01.png"/>
+        <img class="animate__animated animate__obj--02" src="ani_02.png"/>
+        <img class="animate__animated animate__obj--03 animate__pulse animate__infinite" src="ani_03.png"/>
+        <img class="animate__animated animate__obj--09 animate__bounceIn animate__delay-2s" src="ani_09.png"/>
+        <img class="animate__animated animate__obj--10 animate__bounceIn animate__delay-1s" src="ani_10.png"/>
+    </div>
+    <div class="animate__wrap--02">
+      <img class="animate__animated animate__obj--04" src="ani_04.png"/>
+      <img class="animate__animated animate__obj--05" src="ani_05.png"/>
+      <img class="animate__animated animate__obj--06" src="ani_06.png"/>
+      <img class="animate__animated animate__obj--07" src="ani_07.png"/>
+      <img class="animate__animated animate__obj--08" src="ani_08.png"/>
+  </div>
+
+    <main class="sp__main">
+      <div class="layout--main home--logo">
+        <a href="https://www.etmall.com.tw"><img class="logo" src="ehs-logo.png" alt="東森購物" /></a>
+      </div>
+
+      <section class="sp__visual">
+        <div class="layout--main">
+          <ul class="visual--auto clearfix">
+            <li class="visual__fragment width--auto">
+              <img src="index_01.png" alt="" />
+            </li>
+            <li class="visual__fragment width--auto">
+              <a href="#note-top"><img src="index_02.gif" alt="" /></a>
+            </li>
+            <li class="visual__fragment width--auto">
+              <img src="index_03.png" alt="" />
+            </li>
+            <li class="visual__fragment width--auto">
+             <img src="index_05.png" alt="" />
+            </li>
+            <li class="visual__fragment width--auto">
+              <a href="https://www.etmall.com.tw/p/212173"><img src="index_06.png" alt="" /></a>
+            </li>
+            <li class="visual__fragment width--auto">
+              <a href="https://www.etmall.com.tw/p/203739"><img src="index_07.png" alt="" /></a>
+            </li>
+            <li class="visual__fragment width--auto">
+              <a href="https://www.etmall.com.tw/p/164654"><img src="index_08.png" alt="" /></a>
+            </li>
+            <li class="visual__fragment width--auto">
+              <a href="https://www.etmall.com.tw/c3/137332"><img src="index_09.png" alt="" /></a>
+            </li>
+          </ul>
+
+           <!-- 單(雙)連結輪播_第二組 -->
+        <div class="promo__slider--2">
+          <div class="swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal" id="sliderMany2" style="cursor: grab;">
+            <ul class="swiper-wrapper" style="transition-duration: 0ms;">
+              <li class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" style="width: 960px; opacity: 0; transform: translate3d(-960px, 0px, 0px); transition-duration: 0ms;">
+                  <div class="slide__block">
+                    <div class="slide__box">
+                      <a href="https://www.etmall.com.tw/i/2930827">
+                        <img src="1-1.png" alt="">
+                      </a>
+                    </div>
+                    <div class="slide__box">
+                      <a href="https://www.etmall.com.tw/i/4150535">
+                        <img src="1-2.png" alt="">
+                      </a>
+                    </div>
+                  </div>
+              </li>
+              <li class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1" style="width: 960px; opacity: 0; transform: translate3d(-960px, 0px, 0px); transition-duration: 0ms;">
+                <div class="slide__block">
+                  <div class="slide__box">
+                    <a href="https://www.etmall.com.tw/i/4137587">
+                      <img src="2-1.png" alt="">
+                    </a>
+                  </div>
+                  <div class="slide__box">
+                    <a href="https://www.etmall.com.tw/i/2518969">
+                      <img src="2-2.png" alt="">
+                    </a>
+                  </div>
+                </div>
+              </li>
+                </ul>
+          <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+        </div>
+
+
+          <!-- ====== 滾動動畫 start ====== -->
+          <!-- 滾動動畫要加class名稱 wow，才會判斷位置 -->
+          <div class="decor__item wow animate__scroll--01">
+            <!-- 內層class可以設定到點之後的動畫，如果不需要就全部class都拿掉 -->
+            <div class="animate__animated">
+              <img src="decor-item.png" alt="" />
+            </div>
+          </div>
+          <!-- ====== 滾動動畫 end ====== -->
+        </div>
+      </section>
+    </main>
+
+    
+
+  <section class="banner__slider">
+    <div class="layout--main">
+      <ul class="visual--auto clearfix">
+        <li class="visual__fragment width--auto">
+          <img src="index_04.gif" alt="" />
+        </li>
+      </ul>
+      <div class="swipersty__banner">
+        <div class="swiper-container" id="swiperstyBanner">
+          <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+              <a href="https://www.etmall.com.tw/gp/209278" title=""><img src="750x328_1.jpg" alt="" /></a>
+            </li>
+            <li class="swiper-slide">
+              <a href="https://media.etmall.com.tw/sp/22326/m/index.html" title=""><img src="750x328_2.jpg" alt="" /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 共用JS ============== -->
+  <script src="https://media.etmall.com.tw/sp/12500/jquery-3.6.0.min.js"></script>
+  <script src="https://media.etmall.com.tw/sp/12500/generate_v1.5.5.js"></script>
+  <!--[電梯步驟2] 電梯 JS -->
+  <!-- 商品左電梯單機版資料，不用就關掉，要使用還要上方步驟1開啟商品左電梯CSS -->
+  <!-- <script id="dataElevatorLeft" src="data-elevator.js"></script> -->
+
+  <!-- 線上自動切換電梯，無論如何都要有 -->
+  <script id="checkElevator" src="https://media.etmall.com.tw/sp/11911/check-elevator.js"></script>
+  <!-- [電梯步驟2] 電梯 JS END -->
+
+  <!-- [測試區] -->
+  <!-- 測試商品右電梯用，上線前必須關掉 -->
+  <!-- <div data-title="ccc"></div> -->
+  <!-- 測試霸道電梯用，開啟時上方自動切換電梯要關閉，這支正式上線時需關閉、上方的要開啟回來 -->
+  <!-- <script id="checkElevator" src="https://media.etmall.com.tw/sp/14841/test-elevator.js?87"></script> -->
+
+  <!-- ============== 滾動動畫 start ============== -->
+  <script src="wow.min.js"></script>
+
+  <script>
+    new WOW().init();
+  </script>
+  <!-- ============== 滾動動畫 end ============== -->
+
+  <!-- ============== 輪播 start ============== -->
+  <script src="https://media.etmall.com.tw/sp/12500/swiper.min.js"></script>
+  <script>
+    var promoSliderItem = new Swiper("#swiperstyBanner", {
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      grabCursor: true,
+      lazy: {
+        loadPrevNext: true,
+      },
+      loop: true,
+      perspective: true,
+      // effect: "flip",
+      // flipEffect: {
+      //   slideShadows: false,
+      // },
+      slidesPerView: 1,
+      speed: 600,
+      watchSlidesProgress: true,
+      watchSlidesVisibility: true,
+    });
+
+
+    // 單(雙)連結輪播  
+   var sliderMany = new Swiper( "#sliderMany2", {
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      // 翻牌開始
+      effect: 'fade',
+          fadeEffect: {
+          crossFade:true,
+      },
+      // 翻牌結束   
+      grabCursor: true,
+      loop: true,
+      speed: 1500,
+    } );
+  // 單(雙)連結輪播 end  
+
+
+
+  </script>
+  <!-- ============== 輪播 end ============== -->
+</body>
+
+</html>
